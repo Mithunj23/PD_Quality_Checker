@@ -29,3 +29,6 @@
 2026-06-18 11:46:55,971 | INFO     | dq_checker | JSON report written → C:\Mithun\projects\data_quality_checker\reports\dq_report_20260618_061655.json
 2026-06-18 11:46:55,975 | INFO     | dq_checker | CSV report written → C:\Mithun\projects\data_quality_checker\reports\dq_report_20260618_061655.csv
 2026-06-18 11:46:56,000 | INFO     | dq_checker | Run 2e848bf3 persisted to dq_runs history table
+2026-06-18 12:50:21,307 | INFO     | dq_checker | Bootstrapping demo database at C:\Mithun\projects\data_quality_checker\data\demo.db
+2026-06-18 12:50:23,163 | INFO     | dq_checker | Bootstrapping demo database at C:\Mithun\projects\data_quality_checker\data\demo.db
+2026-06-18 12:50:24,098 | INFO     | dq_checker | Bootstrapping demo database at C:\Mithun\projects\data_quality_checker\data\demo.db
