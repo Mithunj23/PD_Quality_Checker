@@ -1,0 +1,54 @@
+{
+  "_comment": "Production Data Quality Checker — runtime configuration",
+  "version": "1.0.0",
+  "run_label": "nightly_dq_run",
+
+  "database": {
+    "type": "sqlite",
+    "path": "data/demo.db",
+    "connection_timeout_sec": 30
+  },
+
+  "logging": {
+    "level": "DEBUG",
+    "rotate_max_bytes": 5242880,
+    "rotate_backup_count": 5,
+    "channels": {
+      "critical": "logs/critical_alerts.log",
+      "warning":  "logs/warnings.log",
+      "audit":    "logs/audit.log"
+    }
+  },
+
+  "thresholds": {
+    "null_rate_warning_pct":     10.0,
+    "salary_upper_bound":        500000,
+    "salary_lower_bound":        0,
+    "order_amount_lower_bound":  0,
+    "order_item_qty_lower_bound": 1,
+    "outlier_iqr_multiplier":    3.0
+  },
+
+  "checks_enabled": {
+    "CHK-01_critical_nulls":            true,
+    "CHK-02_null_rate_threshold":        true,
+    "CHK-03_exact_duplicates":           true,
+    "CHK-04_unique_key_duplicates":      true,
+    "CHK-05_negative_salary":            true,
+    "CHK-06_salary_upper_bound":         true,
+    "CHK-07_negative_order_amount":      true,
+    "CHK-08_future_dates":               true,
+    "CHK-09_ref_integrity_orders_emp":   true,
+    "CHK-10_ref_integrity_emp_depts":    true,
+    "CHK-11_email_format":               true,
+    "CHK-12_date_format":                true,
+    "CHK-13_statistical_outlier":        true,
+    "CHK-14_order_item_qty":             true
+  },
+
+  "alerting": {
+    "notify_on_critical": true,
+    "notify_on_warning":  false,
+    "runbook_url": "https://wiki.internal/runbooks/data-quality"
+  }
+}

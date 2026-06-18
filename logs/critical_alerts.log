@@ -1,0 +1,5 @@
+2026-06-18 11:46:55,960 | CRITICAL | dq_checker | [CHK-04] Unique Key Violation (email) | employees.email | 2 duplicate emails — violates UNIQUE constraint
+2026-06-18 11:46:55,961 | CRITICAL | dq_checker | [CHK-05] Negative Salary | employees.salary | 21 negative salary values
+2026-06-18 11:46:55,962 | CRITICAL | dq_checker | [CHK-07] Negative Order Amount | orders.amount | 7 negative order amounts
+2026-06-18 11:46:55,967 | CRITICAL | dq_checker | [CHK-14] Order Item Quantity ≥ 1 | order_items.quantity | 303 items with zero/negative quantity
+2026-06-18 11:46:55,969 | CRITICAL | dq_checker | RUN COMPLETE — 4 CRITICAL failure(s) require immediate action

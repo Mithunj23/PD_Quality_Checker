@@ -1,0 +1,21 @@
+check_id,check_name,category,severity,table,column,passed,affected_rows,total_rows,failure_rate,message,timestamp
+CHK-01,Critical Null Detection,Null Detection,PASS,employees,first_name,True,0,150,0.0,No NULLs,2026-06-18T05:50:41.535655
+CHK-01,Critical Null Detection,Null Detection,WARNING,employees,email,False,7,150,4.67,7 NULL values found,2026-06-18T05:50:41.536038
+CHK-01,Critical Null Detection,Null Detection,WARNING,employees,dept_id,False,26,150,17.33,26 NULL values found,2026-06-18T05:50:41.536463
+CHK-01,Critical Null Detection,Null Detection,PASS,orders,emp_id,True,0,500,0.0,No NULLs,2026-06-18T05:50:41.536628
+CHK-01,Critical Null Detection,Null Detection,PASS,orders,amount,True,0,500,0.0,No NULLs,2026-06-18T05:50:41.536988
+CHK-02,Null Rate Threshold (>10%),Null Detection,WARNING,orders,region,False,121,500,24.2,24.2% null rate — exceeds 10% threshold,2026-06-18T05:50:41.537276
+CHK-02,Null Rate Threshold (>10%),Null Detection,PASS,employees,last_name,True,0,150,0.0,0.0% null rate,2026-06-18T05:50:41.537586
+CHK-03,Exact Row Duplicates,Duplicate Identification,PASS,employees,,True,0,150,0.0,No exact duplicates,2026-06-18T05:50:41.538274
+CHK-03,Exact Row Duplicates,Duplicate Identification,PASS,orders,,True,0,500,0.0,No exact duplicates,2026-06-18T05:50:41.539156
+CHK-04,Unique Key Violation (email),Duplicate Identification,CRITICAL,employees,email,False,2,150,1.33,2 duplicate emails — violates UNIQUE constraint,2026-06-18T05:50:41.539433
+CHK-05,Negative Salary,Range Validation,CRITICAL,employees,salary,False,21,150,14.0,21 negative salary values,2026-06-18T05:50:41.539875
+CHK-06,Salary Upper Bound (>500k),Range Validation,WARNING,employees,salary,False,26,150,17.33,26 salaries exceed $500k threshold,2026-06-18T05:50:41.540162
+CHK-07,Negative Order Amount,Range Validation,CRITICAL,orders,amount,False,7,500,1.4,7 negative order amounts,2026-06-18T05:50:41.540346
+CHK-08,Future Order Dates,Range Validation,WARNING,orders,order_date,False,15,500,3.0,15 orders with future dates,2026-06-18T05:50:41.540749
+CHK-09,Referential Integrity: orders→employees,Referential Integrity,PASS,orders,emp_id,True,0,500,0.0,All FK references valid,2026-06-18T05:50:41.541157
+CHK-10,Referential Integrity: employees→departments,Referential Integrity,PASS,employees,dept_id,True,0,150,0.0,All FK references valid,2026-06-18T05:50:41.541394
+CHK-11,Email Format Validation,Format / Pattern,PASS,employees,email,True,0,150,0.0,All emails well-formed,2026-06-18T05:50:41.542341
+CHK-12,Date Format Validation (YYYY-MM-DD),Format / Pattern,WARNING,employees,hire_date,False,3,150,2.0,3 malformed hire_date values,2026-06-18T05:50:41.542894
+CHK-13,Statistical Outlier Detection (IQR×3),Statistical Outlier,PASS,orders,amount,True,0,500,0.0,No statistical outliers,2026-06-18T05:50:41.543743
+CHK-14,Order Item Quantity ≥ 1,Range Validation,CRITICAL,order_items,quantity,False,303,1000,30.3,303 items with zero/negative quantity,2026-06-18T05:50:41.544040

@@ -1,0 +1,6 @@
+2026-06-18 11:46:55,954 | WARNING  | dq_checker | [CHK-01] Critical Null Detection | employees.email | 7 NULL values found
+2026-06-18 11:46:55,955 | WARNING  | dq_checker | [CHK-01] Critical Null Detection | employees.dept_id | 26 NULL values found
+2026-06-18 11:46:55,957 | WARNING  | dq_checker | [CHK-02] Null Rate Threshold (>10%) | orders.region | 24.2% null rate — exceeds 10% threshold
+2026-06-18 11:46:55,961 | WARNING  | dq_checker | [CHK-06] Salary Upper Bound (>500k) | employees.salary | 26 salaries exceed $500k threshold
+2026-06-18 11:46:55,962 | WARNING  | dq_checker | [CHK-08] Future Order Dates | orders.order_date | 15 orders with future dates
+2026-06-18 11:46:55,964 | WARNING  | dq_checker | [CHK-12] Date Format Validation (YYYY-MM-DD) | employees.hire_date | 3 malformed hire_date values

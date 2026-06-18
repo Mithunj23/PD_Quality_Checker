@@ -1,0 +1,31 @@
+2026-06-18 11:46:55,875 | INFO     | dq_checker | Bootstrapping demo database at C:\Mithun\projects\data_quality_checker\data\demo.db
+2026-06-18 11:46:55,953 | INFO     | dq_checker | ======================================================================
+2026-06-18 11:46:55,953 | INFO     | dq_checker | DATA QUALITY CHECK RUN STARTED
+2026-06-18 11:46:55,953 | INFO     | dq_checker | ======================================================================
+2026-06-18 11:46:55,954 | INFO     | dq_checker | PASS  [CHK-01] Critical Null Detection | employees.first_name | No NULLs
+2026-06-18 11:46:55,954 | WARNING  | dq_checker | [CHK-01] Critical Null Detection | employees.email | 7 NULL values found
+2026-06-18 11:46:55,955 | WARNING  | dq_checker | [CHK-01] Critical Null Detection | employees.dept_id | 26 NULL values found
+2026-06-18 11:46:55,956 | INFO     | dq_checker | PASS  [CHK-01] Critical Null Detection | orders.emp_id | No NULLs
+2026-06-18 11:46:55,957 | INFO     | dq_checker | PASS  [CHK-01] Critical Null Detection | orders.amount | No NULLs
+2026-06-18 11:46:55,957 | WARNING  | dq_checker | [CHK-02] Null Rate Threshold (>10%) | orders.region | 24.2% null rate — exceeds 10% threshold
+2026-06-18 11:46:55,958 | INFO     | dq_checker | PASS  [CHK-02] Null Rate Threshold (>10%) | employees.last_name | 0.0% null rate
+2026-06-18 11:46:55,959 | INFO     | dq_checker | PASS  [CHK-03] Exact Row Duplicates | employees | No exact duplicates
+2026-06-18 11:46:55,960 | INFO     | dq_checker | PASS  [CHK-03] Exact Row Duplicates | orders | No exact duplicates
+2026-06-18 11:46:55,960 | CRITICAL | dq_checker | [CHK-04] Unique Key Violation (email) | employees.email | 2 duplicate emails — violates UNIQUE constraint
+2026-06-18 11:46:55,961 | CRITICAL | dq_checker | [CHK-05] Negative Salary | employees.salary | 21 negative salary values
+2026-06-18 11:46:55,961 | WARNING  | dq_checker | [CHK-06] Salary Upper Bound (>500k) | employees.salary | 26 salaries exceed $500k threshold
+2026-06-18 11:46:55,962 | CRITICAL | dq_checker | [CHK-07] Negative Order Amount | orders.amount | 7 negative order amounts
+2026-06-18 11:46:55,962 | WARNING  | dq_checker | [CHK-08] Future Order Dates | orders.order_date | 15 orders with future dates
+2026-06-18 11:46:55,963 | INFO     | dq_checker | PASS  [CHK-09] Referential Integrity: orders→employees | orders.emp_id | All FK references valid
+2026-06-18 11:46:55,963 | INFO     | dq_checker | PASS  [CHK-10] Referential Integrity: employees→departments | employees.dept_id | All FK references valid
+2026-06-18 11:46:55,964 | INFO     | dq_checker | PASS  [CHK-11] Email Format Validation | employees.email | All emails well-formed
+2026-06-18 11:46:55,964 | WARNING  | dq_checker | [CHK-12] Date Format Validation (YYYY-MM-DD) | employees.hire_date | 3 malformed hire_date values
+2026-06-18 11:46:55,966 | INFO     | dq_checker | PASS  [CHK-13] Statistical Outlier Detection (IQR×3) | orders.amount | No statistical outliers
+2026-06-18 11:46:55,967 | CRITICAL | dq_checker | [CHK-14] Order Item Quantity ≥ 1 | order_items.quantity | 303 items with zero/negative quantity
+2026-06-18 11:46:55,967 | INFO     | dq_checker | ======================================================================
+2026-06-18 11:46:55,968 | INFO     | dq_checker | SUMMARY  total=20  passed=10  critical=4  warning=6
+2026-06-18 11:46:55,968 | INFO     | dq_checker | ======================================================================
+2026-06-18 11:46:55,969 | CRITICAL | dq_checker | RUN COMPLETE — 4 CRITICAL failure(s) require immediate action
+2026-06-18 11:46:55,971 | INFO     | dq_checker | JSON report written → C:\Mithun\projects\data_quality_checker\reports\dq_report_20260618_061655.json
+2026-06-18 11:46:55,975 | INFO     | dq_checker | CSV report written → C:\Mithun\projects\data_quality_checker\reports\dq_report_20260618_061655.csv
+2026-06-18 11:46:56,000 | INFO     | dq_checker | Run 2e848bf3 persisted to dq_runs history table
