@@ -2,7 +2,7 @@
 
 A production-inspired Data Quality Monitoring System built using Python and SQLite that automatically validates database records, detects anomalies, generates reports, maintains audit logs, and provides dashboard-based monitoring.
 
-URL:https://pdqualitychecker.streamlit.app/
+URL:https://pdqualitychecker.streamlit.app
 ---
 
 ## 📌 Project Overview
